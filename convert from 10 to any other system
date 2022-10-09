@@ -1,0 +1,40 @@
+def sys():
+    ans = []
+    b = 10
+    t = range(10,37,1)
+    num = list('0123456789')
+    alph = list('0123456789ABCDEFGHIGKLMNOPQRSTUVWXYZ')
+    a = int(input('Число:'))
+    c = int(input('В систему исчисления:'))
+    if b == 10:
+        while a >= c:
+            var = a%c
+            a = a//c
+            ans.insert(0,var)
+            var = {}
+        var = a%c
+        ans.insert(0,var)
+    if c > 10:
+        for i in range(len(ans)):
+            if ans[i] != num[0] and num[1] and num[2] and num[3] and num[4] and num[5] and num[6] and num[7] and num[8] and num[9]:
+                for l in list(t):
+                    if ans[i] == l:
+                        ans[i] = (alph[l])
+    import json
+    json_string = json.dumps(ans)
+    with open('data1.json', 'w', encoding='utf-8') as file1:
+        file1.write(json_string)
+def read():
+    m = []
+    content = ''
+    with open("data1.json", 'r', encoding="utf-8") as file2:
+        content = file2.read()
+    import json
+    object = json.loads(content)
+    for item in object:
+        m.append(item)
+    print(m)
+
+if __name__=="__main__":
+    sys()
+    read()
